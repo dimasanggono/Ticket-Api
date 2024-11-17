@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Controllers\Admin\EventController;
+use App\Http\Controllers\Api\EventController;
 use App\Http\Controllers\Admin\TicketCategory;
 use App\Http\Controllers\Admin\TicketController;
+use App\Http\Controllers\Admin\TransactionController;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -38,3 +40,7 @@ Route::delete("/ticket-category/{id}", [TicketCategory::class, 'delete']);
 Route::get('/ticket', [TicketController::class, 'index'])->name('ticket');
 Route::post('/ticket/create', [TicketController::class, 'create']);
 Route::put('/ticket/{id}', [TicketController::class, 'show']);
+
+
+Route::get('/transaction', [TransactionController::class, 'index']);
+Route::post('/transaction/create', [TransactionController::class, 'create']);

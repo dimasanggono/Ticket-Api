@@ -1,22 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Event;
-use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Event;
 
 class EventController extends Controller
 {
     public function index()
     {
         $event = Event::all();
-        $user = User::all();
-        return View('pages.admin.event.index', [
-            'event' => $event,
-            'user' => $user
-        ]);
+        return response()->json($event);
     }
 
     public function store(Request $request)
