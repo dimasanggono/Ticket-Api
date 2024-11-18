@@ -23,3 +23,6 @@ Route::get('/', function () {
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::get('/event', [EventController::class, 'index'])->name('event');
+Route::get('/event/create', [EventController::class, 'create'])->name('event-create');
+Route::get('/event/{id}', [EventController::class, 'show'])->name('event-show');
+Route::post('/event/create', [EventController::class, 'store'])->name('event-show');
